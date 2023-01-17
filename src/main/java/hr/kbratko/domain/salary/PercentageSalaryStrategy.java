@@ -16,7 +16,7 @@ public class PercentageSalaryStrategy implements SalaryStrategy {
   @Override
   public Double calculateSalary(Worker worker) {
     return worker.getParkedVehicles().stream()
-      .mapToDouble(transferable -> transferable.calculateCharge() * salaryPerc)
+      .mapToDouble(transferable -> transferable.calculateCharge() * (salaryPerc / 100))
       .sum();
   }
 }

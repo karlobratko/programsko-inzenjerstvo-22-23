@@ -51,7 +51,7 @@ public class Bus extends Vehicle {
     @Override
     public Builder capacity(Integer capacity) {
       this.capacity = capacity;
-      return null;
+      return this;
     }
 
     @Override

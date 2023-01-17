@@ -31,7 +31,7 @@ public class Worker extends BaseModel<Long> implements Parker, Refiller {
   }
 
   @Override
-  public void refilVehiclePercentage(Fuelable fuelable) {
+  public void refillVehiclePercentage(Fuelable fuelable) {
     if (fuelable.getFuel().shouldRefill()) {
       fuelable.getFuel().refill();
       refilledVehicles.add(fuelable);
