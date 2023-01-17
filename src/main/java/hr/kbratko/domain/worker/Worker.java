@@ -9,21 +9,12 @@ import java.util.List;
 public class Worker extends BaseModel<Long> implements Parker, Refiller {
   private final List<Chargeable> parkedVehicles = new ArrayList<>();
   private final List<Fuelable> refilledVehicles = new ArrayList<>();
-  private Double salaryPerc;
 
-  public Worker(Double salaryPerc) {
-    this(null, salaryPerc);
+  public Worker() {
   }
 
-  public Worker(Long id, Double salaryPerc) {
+  public Worker(Long id) {
     super(id);
-    this.salaryPerc = salaryPerc;
-  }
-
-  public Double salary() {
-    return parkedVehicles.stream()
-      .mapToDouble(transferable -> transferable.calculateCharge() * salaryPerc)
-      .sum();
   }
 
   public List<Chargeable> getParkedVehicles() {
@@ -32,14 +23,6 @@ public class Worker extends BaseModel<Long> implements Parker, Refiller {
 
   public List<Fuelable> getRefilledVehicles() {
     return refilledVehicles;
-  }
-
-  public Double getSalaryPerc() {
-    return salaryPerc;
-  }
-
-  public void setSalaryPerc(Double salaryPerc) {
-    this.salaryPerc = salaryPerc;
   }
 
   @Override
